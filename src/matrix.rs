@@ -6,10 +6,33 @@ pub struct Matrix {
     data: Vec<f64>,
 }
 
+
+//[2,3,4,5,6,7,8,9]
+// 1,1 -> 2, [0]
+// 1,2 -> 3, [1]
+// 1,3 -> 4, [2]
+// 2,1 -> 5, [3]
+// 2,2 -> 6, [4]
+// 2,3 -> 7,  [5]
+
 impl Matrix {
     pub fn new(rows: usize, cols: usize, data: Vec<f64>) -> Self {
         assert_eq!(rows * cols, data.len());
         Matrix { rows, cols, data }
+    }
+
+    pub fn show(&self) -> () {
+        let art : String = "--".repeat(self.cols);
+        for i in 0..self.rows {
+            println!("+{}+",art);
+            print!("| ");
+            for j in 0..self.cols {
+                print!("{}, ", self.data[i * self.cols + j]);
+            }
+            print!(" |");
+            println!();
+        }
+    
     }
 
     pub fn zero(rows: usize, cols: usize) -> Self {

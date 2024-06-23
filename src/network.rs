@@ -27,10 +27,10 @@ impl Network {
     }
 
     pub fn forward(&self, inputs: &Matrix) -> (Matrix, Matrix) {
-        let hidden_input = inputs.multiply(&self.weights_input_hidden);
+        let mut hidden_input = inputs.multiply(&self.weights_input_hidden);
         hidden_input.apply(sigmoid);
 
-        let output_input = hidden_input.multiply(&self.weights_hidden_output);
+        let mut output_input = hidden_input.multiply(&self.weights_hidden_output);
         output_input.apply(sigmoid);
 
         (hidden_input, output_input)
