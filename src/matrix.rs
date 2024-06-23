@@ -6,14 +6,36 @@ pub struct Matrix {
     data: Vec<f64>,
 }
 
+pub struct Lattice {
+    skeleton : Vec<usize>,
+    dimension : usize,
+    data : Vec<Vec<Vec<f32>>>
 
-//[2,3,4,5,6,7,8,9]
-// 1,1 -> 2, [0]
-// 1,2 -> 3, [1]
-// 1,3 -> 4, [2]
-// 2,1 -> 5, [3]
-// 2,2 -> 6, [4]
-// 2,3 -> 7,  [5]
+}
+
+let mut tst = Lattice { vec![2,5,6]};
+
+impl Lattice {
+    pub fn new(sk : Vec<usize>) -> Self {
+
+        let invec : Vec<{unknown}> = Vec::with_capacity(sk[0]);
+        
+
+
+
+
+        Lattice { 
+            skeleton : sk,
+            dimension : sk.len()
+         }
+    
+    }
+ }
+
+
+
+
+
 
 impl Matrix {
     pub fn new(rows: usize, cols: usize, data: Vec<f64>) -> Self {
@@ -22,17 +44,17 @@ impl Matrix {
     }
 
     pub fn show(&self) -> () {
-        let art : String = "--".repeat(self.cols);
+        let art : String = "-----".repeat(self.cols);
+        println!("+{}+",art);
         for i in 0..self.rows {
-            println!("+{}+",art);
             print!("| ");
             for j in 0..self.cols {
-                print!("{}, ", self.data[i * self.cols + j]);
-            }
-            print!(" |");
-            println!();
-        }
-    
+                print!("{:?}, ", self.data[i * self.cols + j]);
+                }
+                print!("|");
+                println!();
+            println!("+{}+",art);
+                }
     }
 
     pub fn zero(rows: usize, cols: usize) -> Self {

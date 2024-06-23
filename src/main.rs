@@ -16,12 +16,12 @@ fn main() {
     //let network = Network::new(input_size, hidden_size, output_size);
 
     // Define XOR inputs and expected outputs
-    let inputs = Matrix::new(4, 2, vec![0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]);
+    let inputs = Matrix::new(3, 3, vec![0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 8.0]);
     let expected_outputs = Matrix::new(4, 1, vec![0.0, 1.0, 1.0, 0.0]);
 
     // Assume training loop and backpropagation logic here
 
     inputs.show(); //Test : this is for testing only
-    expected_outputs.show();
+   
     println!("Setup complete. Network is ready for training.");
 }
